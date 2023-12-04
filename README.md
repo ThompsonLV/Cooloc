@@ -1,8 +1,6 @@
 <h1>Initialisation</h1>
 
-git clone git@github.com:ThompsonLV/Cooloc.git
-
-bundle install
-
-git db:create
-git db:migrate
+<p>git clone git@github.com:ThompsonLV/Cooloc.git</p>
+<p>bundle install</p>
+<p>git db:create</p>
+<p>git db:migrate</p>
