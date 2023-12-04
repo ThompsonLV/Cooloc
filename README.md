@@ -1,4 +1,4 @@
-<h1>Initialisation</h1>h1>
+<h1>Initialisation</h1>
 
 git clone git@github.com:ThompsonLV/Cooloc.git
 
