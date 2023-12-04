@@ -1,1 +1,8 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+<h1>Initialisation</h1>h1>
+
+git clone git@github.com:ThompsonLV/Cooloc.git
+
+bundle install
+
+git db:create
+git db:migrate
