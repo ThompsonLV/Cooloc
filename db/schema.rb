@@ -10,8 +10,91 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_04_190000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "chores", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "frequency"
+    t.date "begin_date"
+    t.bigint "colocation_id", null: false
+    t.bigint "flatmate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["colocation_id"], name: "index_chores_on_colocation_id"
+    t.index ["flatmate_id"], name: "index_chores_on_flatmate_id"
+  end
+
+  create_table "colocations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.date "begin_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flatmates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.date "birthday"
+    t.string "description"
+    t.bigint "colocation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["colocation_id"], name: "index_flatmates_on_colocation_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "flatmate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["flatmate_id"], name: "index_invitations_on_flatmate_id"
+  end
+
+  create_table "shoppings", force: :cascade do |t|
+    t.string "item"
+    t.boolean "bought"
+    t.integer "quantity"
+    t.bigint "colocation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["colocation_id"], name: "index_shoppings_on_colocation_id"
+  end
+
+  create_table "spending_to_flatmates", force: :cascade do |t|
+    t.bigint "flatmate_id", null: false
+    t.bigint "spending_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flatmate_id"], name: "index_spending_to_flatmates_on_flatmate_id"
+    t.index ["spending_id"], name: "index_spending_to_flatmates_on_spending_id"
+  end
+
+  create_table "spendings", force: :cascade do |t|
+    t.string "title"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "chores", "colocations"
+  add_foreign_key "chores", "flatmates"
+  add_foreign_key "flatmates", "colocations"
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "flatmates"
+  add_foreign_key "shoppings", "colocations"
+  add_foreign_key "spending_to_flatmates", "flatmates"
+  add_foreign_key "spending_to_flatmates", "spendings"
 end
