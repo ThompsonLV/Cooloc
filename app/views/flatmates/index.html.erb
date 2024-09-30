@@ -1,7 +1,9 @@
 <div class="container">
-  <h1>Test des flatmates</h1>
+  <h1>Liste des collocataires</h1>
   <% @flatmates.each do |flatmate|%>
-    <p><%= flatmate.first_name %> <%= flatmate.last_name.upcase %> né le <%= flatmate.birthday %></p>
+    <%= link_to flatmate_path(flatmate) do %>
+      <p><%= flatmate.first_name %> <%= flatmate.last_name.upcase %> né le <%= flatmate.birthday %></p>
+    <% end %>
   <% end %>
+  <%= link_to "Créer un collocataire", new_flatmate_path %>
 </div>
-
