@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Test des flatmates</h1>
+  <% @flatmates.each do |flatmate|%>
+    <p><%= flatmate.first_name %> <%= flatmate.last_name.upcase %> né le <%= flatmate.birthday %></p>
+  <% end %>
+</div>
+
