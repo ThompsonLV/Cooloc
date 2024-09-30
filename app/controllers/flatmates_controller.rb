@@ -1,0 +1,2 @@
+class FlatmatesController < ApplicationController
+end
