@@ -2,5 +2,5 @@
 
 <p>git clone git@github.com:ThompsonLV/Cooloc.git</p>
 <p>bundle install</p>
-<p>git db:create</p>
-<p>git db:migrate</p>
+<p>rails db:create</p>
+<p>rails db:migrate</p>
