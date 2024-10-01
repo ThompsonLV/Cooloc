@@ -1,12 +1,40 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-cooloc {
+  background: darkslategray;
+  height: 100vh;
+  width: 290px;
+  color: white;
+
+  .container-fluid {
+    align-items: center;
+    justify-content: start;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    display: flex;
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.form-container{
+  width: calc(100vw - 290px);
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-items ul {
+  padding-left: 1rem;
+}
+
+.nav-item{
+  list-style-type: none;
+  margin-bottom: 6px;
+}
+
+.navbar-cooloc .navbar-brand{
+  padding-right: 12px;
+
+  img {
+    width: 40px;
+  }
 }

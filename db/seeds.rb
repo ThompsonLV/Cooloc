@@ -20,7 +20,7 @@ p 'done'
 # Flatmates -----------------------------------------
 p "Creating flatmates"
 
-50.times do
+8.times do
   Flatmate.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,

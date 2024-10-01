@@ -1,0 +1,19 @@
+.form_inputs {
+  color: black;
+  font-size: 1.5em;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.simple_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: calc(100vh - 290px);
+}

@@ -10,6 +10,16 @@ class FlatmatesController < ApplicationController
 
   def new
     @flatmate = Flatmate.new
+    @flatmates = Flatmate.all
+  end
+
+  def create
+    @flatmate = Flatmate.new(flatmate_params)
+    if @flatmate.save
+      redirect_to flatmates_path
+    else
+      render :new
+    end
   end
 
   private

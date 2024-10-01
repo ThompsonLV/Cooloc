@@ -1,0 +1,34 @@
+<div class="navbar-cooloc">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://img.freepik.com/vecteurs-libre/famille-apprecier-temps-ensemble-concept_23-2148513743.jpg?t=st=1727807906~exp=1727811506~hmac=9fc52de3b7fed1d329e53aeeaa467e4af70a44257f6f2b4b1bb6063fb6af25a9&w=2000" %>
+    <% end %>
+    <h1>Cooloc</h1>
+  </div>
+
+  <div class="nav-items">
+    <ul>
+      <%# if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Accueil", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Liste des colocataires", flatmates_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Liste des tâches", chores_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Liste des dépenses", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Liste des colocations", colocations_path, class: "nav-link" %>
+        </li>
+      <%# else %>
+        <!--li class="nav-item"-->
+          <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <!--/li-->
+      <%# end %>
+    </ul>
+</div>
+</div>

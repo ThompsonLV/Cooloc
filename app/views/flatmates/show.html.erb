@@ -1,5 +1,7 @@
 <div class="container">
-  <h1><%= @flatmate.first_name %> <%= @flatmate.last_name %></h1>
-  <p><%= @flatmate.description %></p>
-  <%= link_to "Liste des collocataires", flatmates_path%>
+  <div class="header">
+    <h1><%= @flatmate.first_name %> <%= @flatmate.last_name %></h1>
+  </div>
+  <p>Description : <%= @flatmate.description %></p>
+  <p>Date de naissance : <%= @flatmate.birthday %></p>
 </div>

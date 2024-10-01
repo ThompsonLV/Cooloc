@@ -1,4 +1,17 @@
-<div class="container">
-  <h1>Formulaire de création d'un collocataire</h1>
-  <%= link_to "Liste des collocataires", flatmates_path%>
+<div class="container form-container">
+  <div class="header">
+    <h1>Formulaire de création d'un Cooloc</h1>
+  </div>
+  <%= simple_form_for(@flatmate) do |f| %>
+    <div class="form_inputs">
+      <%= f.input :first_name, label: "Prénom", class: "form-input"%>
+      <%= f.input :last_name, label: "Nom", class: "form-input"%>
+      <%= f.input :birthday, label: "Date de naissance", order: [:day, :month, :year], start_year: Time.current.year - 100, end_year: Time.current.year, class: "form-input"%>
+      <%= f.input :description, label: "Description", class: "form-input"%>
+      <%= f.hidden_field :colocation_id, value: 11 %>
+    </div>
+    <div class="form_actions d-flex justify-content-center">
+      <%= f.submit "Ajouter colocataire", class: "btn btn-flat" %>
+    </div>
+  <% end %>
 </div>

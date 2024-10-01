@@ -1,2 +1,0 @@
-class CollocationsController < ApplicationController
-end

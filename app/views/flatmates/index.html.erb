@@ -1,9 +1,21 @@
 <div class="container">
-  <h1>Liste des collocataires</h1>
-  <% @flatmates.each do |flatmate|%>
-    <%= link_to flatmate_path(flatmate) do %>
-      <p><%= flatmate.first_name %> <%= flatmate.last_name.upcase %> né le <%= flatmate.birthday %></p>
+  <div class="header">
+    <h1>Liste des coolocataires</h1>
+    <%= link_to "Créer un nouveau Cooloc", new_flatmate_path, class: "btn btn-flat" %>
+  </div>
+  <div class="cards-grid">
+    <% @flatmates.each do |flatmate|%>
+      <%= link_to flatmate_path(flatmate), class: "card-link" do %>
+      <div class="card-flatmate">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-flatmate-infos">
+
+            <h2><%= flatmate.first_name %> <%= flatmate.last_name.upcase %></h2>
+
+          <p>né le <%= flatmate.birthday %></p>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to "Créer un collocataire", new_flatmate_path %>
+  </div>
 </div>

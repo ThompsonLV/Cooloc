@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="header">
+    <h1>Liste des coolocations</h1>
+  </div>
+  <div class="cards-grid">
+    <% @colocations.each do |colocation|%>
+      <%= link_to colocation_path(colocation), class:"card-link" do %>
+        <div class="card-flatmate">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-flatmate-infos">
+              <h2><%= colocation.name %></h2>
+            <p>ID : <%= colocation.id %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
