@@ -37,7 +37,7 @@ class AddDeviseToFlatmates < ActiveRecord::Migration[7.0]
       # t.timestamps null: false
     end
 
-    add_index :flatmates, :email,                unique: true
+    add_index :flatmates, :email #,                unique: true
     add_index :flatmates, :reset_password_token, unique: true
     # add_index :flatmates, :confirmation_token,   unique: true
     # add_index :flatmates, :unlock_token,         unique: true

@@ -26,37 +26,52 @@ p "Creating flatmates"
     last_name: Faker::Name.last_name,
     birthday: Faker::Date.between(from: '1980-01-01', to: '2003-12-31'),
     description: Faker::Lorem.sentence(word_count: 10),
-    colocation_id: Colocation.pluck(:id).sample
+    colocation_id: colocation1.id,
+    email: Faker::Internet.email,
+    password: 'azerty',
+    password_confirmation: 'azerty'
   )
 end
+
+@thomas = Flatmate.create!(
+  email: "thomas@gmail.com",
+  first_name: "Thomas",
+  last_name: "Le Véo",
+  birthday: "1990-12-15",
+  description: "Je suis Thomas, j'ai 30 ans et je suis développeur web.",
+  colocation_id: colocation1.id,
+  password: 'azerty',
+  password_confirmation: 'azerty'
+  )
+
 p 'done'
 
 # Chores -----------------------------------------
-# p "Creating chores"
-# chores1 = Chore.create!(
-#   title: "Faire la vaisselle",
-#   content: "Faire la vaisselle de la semaine",
-#   begin_date: "2023-12-15",
-#   flatmate: jean,
-#   colocation: colocation1
-# )
+p "Creating chores"
+chores1 = Chore.create!(
+  title: "Faire la vaisselle",
+  content: "Faire la vaisselle de la semaine",
+  begin_date: "2023-12-15",
+  flatmate_id: @thomas.id,
+  colocation_id: colocation1.id
+)
 
-# chores2 = Chore.create!(
-#   title: "Passer l'aspirateur",
-#   content: "Passer l'aspirateur dans le salon",
-#   begin_date: "2023-12-15",
-#   flatmate: pierre,
-#   colocation: colocation1
-# )
+chores2 = Chore.create!(
+  title: "Passer l'aspirateur",
+  content: "Passer l'aspirateur dans le salon",
+  begin_date: "2023-12-15",
+  flatmate_id: @thomas.id,
+  colocation_id: colocation1.id
+)
 
-# chores3 = Chore.create!(
-#   title: "Sortir les poubelles",
-#   content: "Sortir les poubelles le lundi soir",
-#   begin_date: "2023-12-15",
-#   flatmate: mathilde,
-#   colocation: colocation1
-# )
-# p 'done'
+chores3 = Chore.create!(
+  title: "Sortir les poubelles",
+  content: "Sortir les poubelles le lundi soir",
+  begin_date: "2023-12-15",
+  flatmate_id: @thomas.id,
+  colocation_id: colocation1.id
+)
+p 'done'
 
 # Spendings -----------------------------------------
 p "Creating spendings"
