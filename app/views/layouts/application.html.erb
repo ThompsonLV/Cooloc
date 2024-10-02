@@ -12,10 +12,9 @@
 
   <body>
     <div class="home">
-      <%= render "shared/navbar" %>
-      <%# <% if flatmate_signed_in? %>
-        <%# <%= render "shared/navbar" %>
-      <%# <% end %>
+      <% if flatmate_signed_in? %>
+        <%= render "shared/navbar" %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

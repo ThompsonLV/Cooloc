@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="header">
+    <h1>Dépense de la coloc</h1>
+    <%= link_to "Créer une nouvelle dépense", new_spending_path, class: "btn btn-flat" %>
+  </div>
+  <h3>Total = <%= @spendings.sum(:amount) %> €</h3>
+  <div class="cards">
+    <% @spendings.each do |spending|%>
+      <%= link_to spending_path(spending), class: "card-link" do %>
+      <div class="card-simple">
+        <div class="card-infos">
+          <h2><%= spending.title %></h2>
+          <p>Montant : <%= spending.amount %> € </p>
+          <p>Attribué à :
+            <% spending.flatmates.each do |flatmate| %>
+              <%= flatmate.first_name %> <%= flatmate.last_name %>, 
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

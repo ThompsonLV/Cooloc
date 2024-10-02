@@ -1,16 +1,16 @@
 <div class="container">
   <div class="header">
     <h1>Liste des tâches</h1>
-        <%= link_to "Créer une nouvelle tâche", new_chore_path, class: "btn btn-flat" %>
-
+      <%= link_to "Créer une nouvelle tâche", new_chore_path, class: "btn btn-flat" %>
   </div>
   <div class="cards">
     <% @chores.each do |chore|%>
       <%= link_to chore_path(chore), class:"card-link" do %>
-        <div class="card-chore">
-          <div class="card-chore-infos">
-              <h2><%= chore.title %></h2>
+        <div class="card-simple">
+          <div class="card-infos">
+            <h2><%= chore.title %></h2>
             <p>A faire : <%= chore.content %></p>
+            <p>Attribué à : <%= chore.flatmate.full_name %></p>
           </div>
         </div>
       <% end %>

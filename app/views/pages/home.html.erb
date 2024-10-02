@@ -1,8 +1,23 @@
-<div class="container">
+<div class="banner-container">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/vecteurs-libre/heureux-parents-fils-faisant-exercices-maison-illustration-plat_74855-16158.jpg?t=st=1727808206~exp=1727811806~hmac=9485415df6e3b67e479da4790d68be4b8f658609d641e70ff191a55755b59104&w=1800);">
     <div class="container">
-      <h1>Bienvenue dans la Cooloc</h1>
-      <p>Ici, tu retrouveras toutes les infos dont t'as besoin pour être au top</p>
+      <h1>Salut <%= current_flatmate.first_name%> !</h1>
+      <p>Ici, tu retrouveras toutes les infos dont t'as besoin pour être au top dans la coloc</p>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Mes tâches</h2>
+    <div class="cards">
+      <% Chore.where(flatmate_id: current_flatmate.id).each do |chore|%>
+        <%= link_to chore_path(chore), class:"card-link" do %>
+          <div class="card-simple">
+            <div class="card-infos">
+              <h2><%= chore.title %></h2>
+              <%= link_to "Fait", root_path, data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir marquer cette tâche comme faite ?" } %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

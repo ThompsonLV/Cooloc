@@ -3,5 +3,9 @@
     <h1><%= @chore.title %></h1>
   </div>
     <p>Détail de la tâches : <%= @chore.content %></p>
-    <p>Attribué à : <%= @chore.flatmate_id %></p>
+    <p>Attribué à : <%= @chore.flatmate.full_name %></p>
+    <p>Fréquence : toutes les <%= @chore.frequency %> semaines</p>
+    <%= link_to "Modifier tâche", edit_chore_path, class: "btn btn-flat" %>
+    <%= link_to "Supprimer", chore_path(@chore), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette tâche ?" }, class: "btn btn-delete" %>
+
 </div>

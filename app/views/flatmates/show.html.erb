@@ -4,4 +4,8 @@
   </div>
   <p>Description : <%= @flatmate.description %></p>
   <p>Date de naissance : <%= @flatmate.birthday %></p>
+    <% if @flatmate.id == current_flatmate.id%>
+      <%= link_to "Modifier information", edit_flatmate_path, class: "btn btn-flat" %>
+    <% end %>
+    <%= link_to "Supprimer", flatmate_path(@flatmate), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce colocataire ?" }, class: "btn btn-delete" %>
 </div>

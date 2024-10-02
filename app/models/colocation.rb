@@ -1,3 +1,4 @@
 class Colocation < ApplicationRecord
-  has_many :colocations
+  has_many :flatmates, dependent: :destroy
+  has_many :chores, dependent: :destroy
 end

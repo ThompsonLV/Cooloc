@@ -1,14 +1,14 @@
 <div class="container">
   <div class="header">
-    <h1>Liste des coolocataires</h1>
+    <h1>Mes colocataires</h1>
     <%= link_to "Créer un nouveau Cooloc", new_flatmate_path, class: "btn btn-flat" %>
   </div>
   <div class="cards-grid">
     <% @flatmates.each do |flatmate|%>
       <%= link_to flatmate_path(flatmate), class: "card-link" do %>
-      <div class="card-flatmate">
+      <div class="card-image">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-flatmate-infos">
+        <div class="card-infos">
 
             <h2><%= flatmate.first_name %> <%= flatmate.last_name.upcase %></h2>
 

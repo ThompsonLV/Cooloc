@@ -1,7 +1,8 @@
 class FlatmatesController < ApplicationController
 
   def index
-      @flatmates = Flatmate.all
+    current_colocation_id = current_flatmate.colocation_id
+    @flatmates = Flatmate.where(colocation_id: current_colocation_id)
   end
 
   def show
@@ -10,7 +11,6 @@ class FlatmatesController < ApplicationController
 
   def new
     @flatmate = Flatmate.new
-    @flatmates = Flatmate.all
   end
 
   def create
@@ -20,6 +20,25 @@ class FlatmatesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @flatmate = Flatmate.find(params[:id])
+  end
+
+  def update
+    @flatmate = Flatmate.find(params[:id])
+    if @flatmate.update(flatmate_params)
+      redirect_to flatmates_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @flatmate = Flatmate.find(params[:id])
+    @flatmate.destroy
+    redirect_to flatmates_path
   end
 
   private

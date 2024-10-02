@@ -1,0 +1,17 @@
+<div class="container form-container">
+  <div class="header">
+    <h1>Formulaire de modification d'une tâche</h1>
+  </div>
+  <%= simple_form_for(@chore) do |f| %>
+    <div class="form_inputs">
+      <%= f.input :title, label: "Intitulé", class: "form-input"%>
+      <%= f.input :content, label: "Description", class: "form-input"%>
+      <%= f.input :frequency, label: "Fréquence", class: "form-input"%>
+      <%= f.input :flatmate_id, label: "Attribué à", as: :select, collection: @flatmates.map { |f| [f.full_name, f.id] }, prompt: "Sélectionnez un colocataire", class: "form-input" %>
+      <%= f.hidden_field :colocation_id, value: Colocation.all.first.id %>
+    </div>
+    <div class="form_actions d-flex justify-content-center">
+      <%= f.submit "Modifier tâche", class: "btn btn-flat" %>
+    </div>
+  <% end %>
+</div>

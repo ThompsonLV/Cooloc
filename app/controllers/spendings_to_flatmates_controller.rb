@@ -1,2 +1,3 @@
 class SpendingsToFlatmatesController < ApplicationController
+
 end

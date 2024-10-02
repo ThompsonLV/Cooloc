@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="header">
+    <h1><%= @spending.title %></h1>
+  </div>
+  <h4>Montant : <%= @spending.amount %> €</h4>
+  <h4>Colocataires associés :</h4>
+  <ul>
+    <% @spending.flatmates.each do |flatmate| %>
+      <li><%= flatmate.first_name %> <%= flatmate.last_name %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Modifier la dépense", edit_spending_path, class: "btn btn-flat" %>
+  <%= link_to "Supprimer", spending_path(@spending), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette dépense ?" }, class: "btn btn-delete" %>
+</div>
