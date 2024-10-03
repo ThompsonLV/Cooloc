@@ -18,6 +18,7 @@ class ChoresController < ApplicationController
     if @chore.save
       redirect_to chores_path
     else
+      @flatmates = Flatmate.all
       render :new
     end
   end
@@ -30,7 +31,7 @@ class ChoresController < ApplicationController
   def update
     @chore = Chore.find(params[:id])
     @chore.update(chore_params)
-    redirect_to chore_path(@chore)
+    redirect_to chores_path
   end
 
   def destroy

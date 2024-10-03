@@ -4,13 +4,12 @@
   </div>
   <%= simple_form_for(@chore) do |f| %>
     <div class="form_inputs">
-      <%= f.input "title", label: "Nom de la tâche", class: "form-input"%>
-      <%= f.input "content", label: "Description", class: "form-input"%>
-      <%= f.input "frequency", label: "Toutes les X semaines", class: "form-input"%>
-      <%= f.input "begin_date", label: "Date de début", class: "form-input"%>
-      <%= f.input "flatmate_id",as: :select, collection: @flatmates, label: "Attribué à", class: "form-input"%>
-      <%= f.hidden_field :colocation_id, value: 11 %>
-
+      <%= f.input :title, label: "Intitulé", class: "form-input"%>
+      <%= f.input :content, label: "Description", class: "form-input"%>
+      <%= f.input :frequency, label: "Toutes les X semaines", class: "form-input"%>
+      <%= f.input :begin_date, label: "Date de début", class: "form-input"%>
+      <%= f.input :flatmate_id, label: "Attribué à", as: :select, collection: @flatmates.map { |f| [f.full_name, f.id] }, class: "form-input"%>
+      <%= f.hidden_field :colocation_id, value: current_flatmate.colocation_id %>
     </div>
     <div class="form_actions d-flex justify-content-center">
       <%= f.submit "Ajouter tâche", class: "btn btn-flat" %>

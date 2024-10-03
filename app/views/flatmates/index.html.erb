@@ -9,10 +9,15 @@
       <div class="card-image">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <div class="card-infos">
-
-            <h2><%= flatmate.first_name %> <%= flatmate.last_name.upcase %></h2>
-
-          <p>né le <%= flatmate.birthday %></p>
+          <h2><%= flatmate.first_name %> <%= flatmate.last_name.upcase %></h2>
+            <% case flatmate.echeance_birthday %>
+              <% when 0 %>
+                <p><strong>C'est son anniversaire !!</strong></p>
+              <% when 1 %>
+                <p>Anniversaire demain !!</p>
+              <% else %>
+                <p>Anniversaire dans <%= flatmate.echeance_birthday %> jours</p>
+            <% end %>
         </div>
       </div>
       <% end %>
