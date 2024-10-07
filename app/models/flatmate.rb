@@ -10,7 +10,7 @@ class Flatmate < ApplicationRecord
 
 
   belongs_to :colocation
-  has_many :spending_to_flatmates
+  has_many :spending_to_flatmates, dependent: :destroy
   has_many :spendings, through: :spending_to_flatmates
   has_many :chores, dependent: :destroy
 

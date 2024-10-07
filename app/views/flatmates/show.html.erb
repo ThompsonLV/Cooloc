@@ -1,18 +1,23 @@
-<div class="container-profil">
-  <div class="profil-image">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="profil-image">
-  </div>
-  <div class="profil-text">
-    <div class="profil-detail">
-      <h1><%= @flatmate.first_name %> <%= @flatmate.last_name %></h1>
-      <p><%= @flatmate.age %> ans, né le <%= @flatmate.birthday.strftime("%d/%m/%Y") %></p>
-      <p>"<%= @flatmate.description%>"</p>
+<div class="container">
+  <div class="container-profil">
+    <h1 class="profil-title"><%= @flatmate.first_name %> <%= @flatmate.last_name %></h1>
+    <div class="profil-main-detail">
+      <div class="profil-picture">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="profil-image">
+      </div>
+      <div class="profil-detail">
+        <h5><%= @flatmate.age %> ans</h5>
+        <p>"<%= @flatmate.description%>"</p>
+      </div>
+    </div>
+    <div class="profil-other-info">
+      blablabla
     </div>
     <div class="profil-buttons">
-      <% if @flatmate.id == current_flatmate.id%>
-        <%= link_to "Modifier information", edit_flatmate_path, class: "btn btn-flat" %>
-      <% end %>
-      <%= link_to "Supprimer", flatmate_path(@flatmate), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce colocataire ?" }, class: "btn btn-delete" %>
-    </div>
+        <% if @flatmate.id == current_flatmate.id%>
+          <%= link_to "Modifier information", edit_flatmate_path, class: "btn btn-flat" %>
+        <% end %>
+        <%= link_to "Supprimer", flatmate_path(@flatmate), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce colocataire ?" }, class: "btn btn-delete" %>
+      </div>
   </div>
 </div>

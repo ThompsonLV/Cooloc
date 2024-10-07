@@ -1,23 +1,20 @@
-<div class="banner-container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/vecteurs-libre/heureux-parents-fils-faisant-exercices-maison-illustration-plat_74855-16158.jpg?t=st=1727808206~exp=1727811806~hmac=9485415df6e3b67e479da4790d68be4b8f658609d641e70ff191a55755b59104&w=1800);">
-    <div class="container">
-      <h1>Salut <%= current_flatmate.first_name%> !</h1>
-      <p>Ici, tu retrouveras toutes les infos dont t'as besoin pour être au top dans la coloc</p>
-    </div>
-  </div>
-  <div class="container">
-    <h2>Mes tâches</h2>
-    <div class="cards">
-      <% Chore.where(flatmate_id: current_flatmate.id).each do |chore|%>
+<div class="container">
+  <h2>Mes tâches</h2>
+  <div class="cards">
+    <% Chore.where(flatmate_id: current_flatmate.id).each do |chore|%>
+      <div class="card-simple">
+      <div class="card-infos">
         <%= link_to chore_path(chore), class:"card-link" do %>
-          <div class="card-simple">
-            <div class="card-infos">
-              <h2><%= chore.title %></h2>
-              <%= link_to "Fait", root_path, data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir marquer cette tâche comme faite ?" } %>
-            </div>
-          </div>
+            <h2><%= chore.title %></h2>
+            <p>A faire avant le : <%= (chore.begin_date.advance(weeks: chore.frequency)).strftime("%d/%m/%Y") %></p>
         <% end %>
-      <% end %>
+      </div>
+      <div class="card-actions">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+        </svg>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
