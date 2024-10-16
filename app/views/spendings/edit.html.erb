@@ -6,6 +6,8 @@
     <div class="form_inputs">
       <%= f.input :title, label: "Intitulé", class: "form-input"%>
       <%= f.input :amount, label: "Montant", class: "form-input"%>
+      <%= f.collection_select :flatmate_id, @flatmates, :id, :first_name, { label: "Acheté par" }, { class: "form-control" } %>
+
     </div>
     <div class="form-group">
       <label>Associer des colocataires :</label>

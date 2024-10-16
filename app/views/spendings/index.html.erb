@@ -11,9 +11,10 @@
         <div class="card-infos">
           <h2><%= spending.title %></h2>
           <p>Montant : <%= spending.amount %> € </p>
-          <p>Attribué à :
+          <p>Acheté par : <%= spending.flatmate.full_name %>  </p>
+          <p>Pour :
             <% spending.flatmates.each do |flatmate| %>
-              <%= flatmate.first_name %> <%= flatmate.last_name %>, 
+              <%= flatmate.full_name %>,
             <% end %>
           </p>
         </div>

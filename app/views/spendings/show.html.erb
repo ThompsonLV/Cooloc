@@ -3,10 +3,12 @@
     <h1><%= @spending.title %></h1>
   </div>
   <h4>Montant : <%= @spending.amount %> €</h4>
+  <h4>Acheteur : <%= @spending.flatmate.full_name %></h4>
+  <h4>Montant par colocataire : </h4>
   <h4>Colocataires associés :</h4>
   <ul>
     <% @spending.flatmates.each do |flatmate| %>
-      <li><%= flatmate.first_name %> <%= flatmate.last_name %></li>
+      <li><%= flatmate.first_name %> <%= flatmate.last_name %> - <%= (@spending.amount / @spending.flatmates.count).round(2) %> €</li>
     <% end %>
   </ul>
   <%= link_to "Modifier la dépense", edit_spending_path, class: "btn btn-flat" %>

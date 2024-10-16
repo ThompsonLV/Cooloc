@@ -56,6 +56,6 @@ class SpendingsController < ApplicationController
 
   private
   def spending_params
-    params.require(:spending).permit(:title, :amount)
+    params.require(:spending).permit(:title, :amount, :flatmate_id)
   end
 end

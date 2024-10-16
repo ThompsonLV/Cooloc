@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_02_062719) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_16_200734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_02_062719) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "flatmate_id", null: false
+    t.index ["flatmate_id"], name: "index_spendings_on_flatmate_id"
   end
 
   add_foreign_key "chores", "colocations"
@@ -103,4 +105,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_02_062719) do
   add_foreign_key "shoppings", "colocations"
   add_foreign_key "spending_to_flatmates", "flatmates"
   add_foreign_key "spending_to_flatmates", "spendings"
+  add_foreign_key "spendings", "flatmates"
 end

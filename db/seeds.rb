@@ -74,17 +74,17 @@ chores3 = Chore.create!(
 p 'done'
 
 # Spendings -----------------------------------------
-p "Creating spendings"
-spending1 = Spending.create!(
-  title: "Avance parc attraction",
-  amount: 100,
-)
+# p "Creating spendings"
+# spending1 = Spending.create!(
+#   title: "Avance parc attraction",
+#   amount: 100,
+# )
 
-spending2 = Spending.create!(
-  title: "Avance charges",
-  amount: 200)
+# spending2 = Spending.create!(
+#   title: "Avance charges",
+#   amount: 200)
 
-p 'done'
+# p 'done'
 
 # Shopping -----------------------------------------
 p "Creating shopping"
